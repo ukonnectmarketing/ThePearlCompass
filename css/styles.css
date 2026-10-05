@@ -300,7 +300,6 @@ p { margin: 0 0 1em; }
   gap: 56px;
 }
 .hero-text { flex: 1; min-width: 0; max-width: 640px; }
-.hero-text .eyebrow-light { text-shadow: 0 1px 3px rgba(0,0,0,0.55), 0 4px 16px rgba(0,0,0,0.45); }
 .hero-content h1 { color: #fff; text-shadow: 0 2px 6px rgba(0,0,0,0.55), 0 10px 30px rgba(0,0,0,0.5); }
 .hero-content h1 .accent { color: #fff; }
 .hero-sub {
@@ -310,15 +309,7 @@ p { margin: 0 0 1em; }
   margin-bottom: 2em;
   text-shadow: 0 1px 3px rgba(0,0,0,0.55), 0 4px 16px rgba(0,0,0,0.45);
 }
-.hero-ctas { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 2em; }
-.hero-trust {
-  color: rgba(255,255,255,0.7);
-  font-size: 0.78rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.55), 0 4px 16px rgba(0,0,0,0.45);
-  margin: 0;
-}
+.hero-ctas { display: flex; flex-wrap: wrap; gap: 16px; }
 
 /* Video card: autoplaying, muted, controls-free background video. */
 .hero-video {
@@ -345,6 +336,7 @@ p { margin: 0 0 1em; }
    ============================================================ */
 .section { padding: 110px 0; position: relative; }
 .section-alt { background: var(--cream-dark); }
+#process { background: var(--paper); }
 .section-dark {
   background: var(--cream-dark);
   color: var(--ink-soft);
@@ -422,14 +414,22 @@ p { margin: 0 0 1em; }
   display: grid;
   grid-template-columns: 1fr 56px 1fr;
   column-gap: 28px;
+  row-gap: 24px;
 }
+/* Each step is a rounded card. Inactive cards sit back (faded, flat);
+   the active one lifts forward — see .is-active below. */
 .process-item {
   display: flex;
   gap: 20px;
   align-items: flex-start;
-  padding: 40px 0;
+  padding: 28px 32px;
+  background: var(--ivory);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: 0 0 0 rgba(15,25,45,0);
   opacity: 0.4;
-  transition: opacity 0.35s ease;
+  transition: opacity 0.35s ease, transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background-color 0.35s ease, border-color 0.35s ease, box-shadow 0.45s ease;
 }
 .process-item-left {
   grid-column: 1;
@@ -457,6 +457,23 @@ p { margin: 0 0 1em; }
    the active step's own number/title getting richer color and weight. */
 .process-item.is-active {
   opacity: 1;
+  background: var(--paper);
+  border-color: var(--gold-light);
+  box-shadow: 0 22px 48px -22px rgba(92,58,31,0.45);
+}
+/* The pop: specificity beats .js .reveal.in-view, which otherwise pins
+   transform back to translateY(0) once the step has scrolled into view. */
+.process-item.is-active,
+.js .process-item.reveal.in-view.is-active {
+  transform: translateY(-6px) scale(1.03);
+}
+.js .process-item.reveal {
+  transition: opacity 0.7s ease, transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background-color 0.35s ease, border-color 0.35s ease, box-shadow 0.45s ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  .process-item.is-active,
+  .js .process-item.reveal.in-view.is-active { transform: none; }
 }
 .process-item.is-active .process-num {
   color: var(--gold);
@@ -545,7 +562,7 @@ p { margin: 0 0 1em; }
   font-style: italic;
   font-size: 1.5rem;
   color: var(--ink);
-  margin-bottom: 0.3em;
+  margin-bottom: 1.1em;
 }
 .about-copy cite {
   font-style: normal;
@@ -734,6 +751,14 @@ p { margin: 0 0 1em; }
 
 .form-success { text-align: center; padding: 30px 10px; }
 .form-success h3 { color: var(--gold-dark); }
+
+.form-error {
+  color: #9B2C2C;
+  font-size: 0.85rem;
+  text-align: center;
+  margin: 0 0 14px;
+}
+.contact-form button[disabled] { opacity: 0.6; cursor: progress; }
 
 .form-note {
   text-align: center;

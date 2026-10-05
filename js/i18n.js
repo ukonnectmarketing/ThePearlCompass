@@ -4,12 +4,10 @@ const translations = {
     meta_title: "The Pearl Compass, Buyer's Agency for the Spanish Mediterranean",
     cta_book: "Book a Consultation",
 
-    hero_eyebrow: "BUYER'S AGENCY, SPANISH MEDITERRANEAN",
     hero_headline_html: "Buying property in Spain<br>should feel exciting,<br><span class=\"accent\">not overwhelming.</span>",
     hero_sub: "The Pearl Compass is a boutique buyers' agency for those acquiring luxury property on the Spanish Mediterranean — from the Costa Brava to Marbella and the Balearic Islands. We work exclusively on your behalf, and no one else's.",
     hero_cta_primary: "Book Your Private Consultation",
     hero_cta_secondary: "Message on WhatsApp",
-    hero_trust: "Independent · Buyer-side only · Discreet bij nature",
 
     risk_eyebrow: "BEFORE YOU COMMIT TO ANYTHING",
     risk_headline: "Buying luxury property on the Spanish coast raises questions most people can't answer alone.",
@@ -19,11 +17,11 @@ const translations = {
     risk_item2_title: "What if something's wrong with the property?",
     risk_item2_text: "Hidden defects, structural issues, illegal extensions. We uncover what the seller won't mention.",
     risk_item3_title: "Who is actually on my side here?",
-    risk_item3_text: "In Spain, most agents work for the seller. We represent you, and no one else.",
+    risk_item3_text: "In Spain, most agents work for the seller, or for both sides at once. We represent you, and no one else — with no conflict of interest, ever.",
     risk_item4_title: "Will there be a legal or tax surprise later?",
-    risk_item4_text: "The paperwork, taxes and ownership structure, understood fully before you sign, not after.",
-    risk_item5_title: "I don't speak the language or know the system.",
-    risk_item5_text: "We handle every conversation, document and negotiation, in your interest, in your language.",
+    risk_item4_text: "The paperwork, taxes and ownership structure, understood fully and explained clearly before you sign — never after.",
+    risk_item5_title: "What if I don't speak the language?",
+    risk_item5_text: "Every conversation, document and negotiation — handled entirely for you, and made clear in your own language",
     risk_item6_title: "How do I do all this from another country?",
     risk_item6_text: "One trusted point of contact managing the entire process, so distance never becomes a disadvantage.",
     risk_closing: "This is what representation means: someone on your side of the table, from the first viewing to the final signature.",
@@ -41,12 +39,12 @@ const translations = {
     step4_title: "Purchase & Notary",
     step4_text: "We manage the signing, notary and transfer, so nothing is finalised until you fully understand it.",
     step5_title: "Settling In & Aftercare",
-    step5_text: "From utilities to schools, we help you settle in, and stay your point of contact long after.",
+    step5_text: "From utilities to insurance, we help you settle in — and stay your point of contact long after.",
 
     about_headline: "Meet the team behind The Pearl Compass.",
     about_p1: "Lotte began her real estate journey over two decades ago, buying, renovating and successfully selling her own properties long before it became her profession.",
     about_p2: "A background in project management, event management and consulting for the financial sector taught her to operate calmly among demanding people in high-stakes environments, precisely the skills a luxury acquisition demands.",
-    about_p3: "When she moved to Spain and experienced the buyer's side first-hand, she found a market where almost no one represented the buyer, and where service fell far short of what international clients expect. The Pearl Compass was built to change that.",
+    about_p3: "When she moved to Spain and experienced the buyer's side first-hand, she found a market where almost no one represented the buyer, and where service fell far short of what international clients expect. The Pearl Compass was born to change that.",
     about_p4: "A boutique agency built on personal service and true local presence. Wherever you're looking along the coast, you have a dedicated advisor on the ground who knows the region intimately — supported by a trusted local network of lawyers, advisers and specialists. Personal, precise, and never templated.",
     about_quote: "Whatever it takes to do it right, we will secure your pearl.",
     about_signature: "Lotte Wennink, Founder & Director",
@@ -56,10 +54,10 @@ const translations = {
 
     team2_name: "Clementine Lanchier",
     team2_role: "Property Acquisition Advisor",
-    team2_teaser: "Clementine Lanchier, Property Acquisition Advisor, brings something genuinely rare to buyer representation.",
+    team2_teaser: "Clementine Lanchier brings something genuinely rare to buyer representation: over twenty years across design and organisation, and more than a decade in real estate",
     team2_toggle: "Read more",
-    team2_p1: "Over more than twenty years working at the intersection of design, aesthetics and organisation — from Parisian fashion houses to international brand events and productions across Europe — she learned to see detail, structure and potential where others simply don't. Alongside that, she has built over ten years of experience in real estate on the listing side of the market, which means she knows exactly how sellers think, how properties are prepared and presented, and where the gaps tend to hide.",
-    team2_p2: "That combined background — creative, organisational and commercial — is now put entirely at the service of buyers. A certified home stager and a certified real estate agent in Catalonia (AICAT, member of API), Clementine is fluent in French, Spanish and English, guiding clients of many nationalities with equal ease. When she walks into a property, she reads it the way most people cannot: structure, light, proportion, potential, and the quiet details a photograph never captures. She works alongside our clients through the entire search and acquisition process — bringing warmth, precision and a designer's instinct to every step.",
+    team2_p1: "on the listing side. From Parisian fashion houses to international brand events across Europe, she learned to see detail, structure and potential where others simply don't.",
+    team2_p2: "Because she has worked the listing side, she knows exactly how sellers think and where the gaps tend to hide. A certified home stager and certified real estate agent in Catalonia (AICAT, member of API), fluent in French, Spanish and English, she reads a property the way most people cannot — and puts that entirely at the service of buyers.",
 
     regions_eyebrow: "WHERE WE WORK",
     regions_headline: "The Spanish Mediterranean, region by region.",
@@ -74,7 +72,7 @@ const translations = {
     region4_text: "Marbella and beyond, sunlit, serviced and effortlessly connected, for those who want warmth year-round.",
     region5_name: "Costa Blanca",
     region5_text: "A soft climate, considered architecture and exceptional value, space and light without compromise.",
-    regions_closing: "In every region we work, you have a local advisor on the ground and a trusted network of vetted lawyers, inspectors and specialists — so wherever your search takes you, you have the same personal representation and the same local depth.",
+    regions_closing: "In every region we work, you have a local property acquisition advisor on the ground and a trusted network of vetted lawyers, inspectors and specialists — so wherever your search takes you, you have the same personal representation and the same local depth.",
 
     testimonials_eyebrow: "IN THEIR WORDS",
     testimonials_headline: "What it's like to work with us.",
@@ -116,6 +114,7 @@ const translations = {
     form_alt_link: "Message us on WhatsApp",
     form_success_title: "Thank you.",
     form_success_text: "Your enquiry has been received. Lotte will be in touch within two business days.",
+    form_error: "Sorry, something went wrong sending your enquiry. Please try again, or email us at lwennink@thepearlcompass.com.",
 
     footer_tagline: "Boutique buyer's agency for the Spanish Mediterranean.",
     footer_contact_label: "Contact",
@@ -130,12 +129,10 @@ const translations = {
     meta_title: "The Pearl Compass, Aankoopmakelaar voor de Spaanse Middellandse Zeekust",
     cta_book: "Plan een Gesprek",
 
-    hero_eyebrow: "AANKOOPMAKELAAR, SPAANSE MIDDELLANDSE ZEEKUST",
     hero_headline_html: "Een huis kopen in Spanje<br>hoort opwindend te voelen,<br><span class=\"accent\">niet overweldigend.</span>",
     hero_sub: "The Pearl Compass is een boutique aankoopmakelaar voor wie luxe vastgoed verwerft aan de Spaanse Middellandse Zeekust — van de Costa Brava tot Marbella en de Balearen. Wij werken uitsluitend in uw belang, en dat van niemand anders.",
     hero_cta_primary: "Plan Uw Persoonlijke Gesprek",
     hero_cta_secondary: "Stuur een bericht via WhatsApp",
-    hero_trust: "Onafhankelijk · Werkt uitsluitend voor de koper · Discreet van aard",
 
     risk_eyebrow: "WAAROM EEN EIGEN VERTEGENWOORDIGER NODIG IS",
     risk_headline: "Luxe vastgoed kopen aan de Spaanse kust roept vragen op die de meeste mensen niet alleen kunnen beantwoorden.",
@@ -172,10 +169,20 @@ const translations = {
     about_headline: "Maak kennis met het team",
     about_p1: "Lotte begon haar vastgoedreis ruim twee decennia geleden, met het kopen, renoveren en succesvol verkopen van haar eigen woningen, lang voordat het haar beroep werd.",
     about_p2: "Een achtergrond in projectmanagement, evenementenmanagement en consultancy voor de financiële sector leerde haar kalm te opereren tussen veeleisende mensen in omgevingen met hoge inzet, precies de vaardigheden die een luxe aankoop vereist.",
-    about_p3: "Toen ze naar Spanje verhuisde en de aankoop zelf aan den lijve ondervond, trof ze een markt waarin bijna niemand de koper vertegenwoordigde, en waar de dienstverlening ver achterbleef bij wat internationale klanten mogen verwachten. The Pearl Compass werd opgericht om dat te veranderen.",
+    about_p3: "Toen ze naar Spanje verhuisde en de aankoop zelf aan den lijve ondervond, trof ze een markt waarin bijna niemand de koper vertegenwoordigde, en waar de dienstverlening ver achterbleef bij wat internationale klanten mogen verwachten. The Pearl Compass is ontstaan om dat te veranderen.",
     about_p4: "Een boutique kantoor gebouwd op persoonlijke service en een oprechte lokale aanwezigheid. Waar u ook zoekt langs de kust, u heeft een toegewijde adviseur ter plaatse die de regio door en door kent — ondersteund door een vertrouwd lokaal netwerk van advocaten, adviseurs en specialisten. Persoonlijk, precies, en nooit standaard.",
     about_quote: "Wat er ook voor nodig is om het goed te doen, wij zullen uw parel veiligstellen.",
     about_signature: "Lotte Wennink, Oprichter",
+
+    team1_name: "Lotte Wennink",
+    team1_role: "Oprichter & Directeur",
+
+    team2_name: "Clementine Lanchier",
+    team2_role: "Aankoopadviseur Vastgoed",
+    team2_teaser: "Clementine Lanchier brengt iets werkelijk zeldzaams mee naar het vertegenwoordigen van kopers: ruim twintig jaar ervaring in design en organisatie, en meer dan tien jaar in vastgoed",
+    team2_toggle: "Lees meer",
+    team2_p1: "aan de verkoopkant. Van Parijse modehuizen tot internationale merkevenementen in heel Europa: ze leerde detail, structuur en potentieel te zien waar anderen dat simpelweg niet doen.",
+    team2_p2: "Omdat ze aan de verkoopkant heeft gewerkt, weet ze precies hoe verkopers denken en waar de valkuilen zich meestal verschuilen. Als gecertificeerd home stager en gecertificeerd makelaar in Catalonië (AICAT, lid van API), vloeiend in het Frans, Spaans en Engels, leest ze een woning zoals weinig anderen dat kunnen — en zet ze dat volledig in ten dienste van kopers.",
 
     regions_eyebrow: "WAAR WIJ ACTIEF ZIJN",
     regions_headline: "De Spaanse Middellandse Zeekust, regio voor regio.",
@@ -190,6 +197,7 @@ const translations = {
     region4_text: "Marbella en omstreken, zonovergoten, voorzien van alle service en moeiteloos bereikbaar, voor wie het hele jaar warmte wil.",
     region5_name: "Costa Blanca",
     region5_text: "Een zacht klimaat, doordachte architectuur en uitzonderlijke waarde, ruimte en licht zonder compromis.",
+    regions_closing: "In elke regio waar wij actief zijn, heeft u een lokale aankoopadviseur vastgoed ter plaatse en een vertrouwd netwerk van zorgvuldig geselecteerde advocaten, inspecteurs en specialisten — zodat u, waar uw zoektocht u ook brengt, dezelfde persoonlijke vertegenwoordiging en dezelfde lokale diepgang heeft.",
 
     testimonials_eyebrow: "IN HUN WOORDEN",
     testimonials_headline: "Hoe het is om met ons samen te werken.",
@@ -230,6 +238,7 @@ const translations = {
     form_alt_link: "Stuur ons een bericht via WhatsApp",
     form_success_title: "Dank u wel.",
     form_success_text: "Uw aanvraag is ontvangen. Lotte neemt binnen twee werkdagen contact met u op.",
+    form_error: "Excuses, er ging iets mis bij het versturen van uw aanvraag. Probeer het opnieuw, of mail ons via lwennink@thepearlcompass.com.",
 
     footer_tagline: "Boutique aankoopmakelaar voor de Spaanse Middellandse Zeekust.",
     footer_contact_label: "Contact",
@@ -244,12 +253,10 @@ const translations = {
     meta_title: "The Pearl Compass, Agencia Compradora para la Costa Mediterránea Española",
     cta_book: "Reserve una Consulta",
 
-    hero_eyebrow: "AGENCIA COMPRADORA, COSTA MEDITERRÁNEA ESPAÑOLA",
     hero_headline_html: "Comprar una propiedad en España<br>debería sentirse emocionante,<br><span class=\"accent\">no abrumador.</span>",
     hero_sub: "The Pearl Compass es una agencia compradora boutique para quienes adquieren una propiedad de lujo en la costa mediterránea española — desde la Costa Brava hasta Marbella y las Islas Baleares. Trabajamos exclusivamente en su nombre, y en el de nadie más.",
     hero_cta_primary: "Reserve Su Consulta Privada",
     hero_cta_secondary: "Escriba por WhatsApp",
-    hero_trust: "Independientes · Solo del lado del comprador · Discretos por naturaleza",
 
     risk_eyebrow: "ANTES DE COMPROMETERSE A NADA",
     risk_headline: "Comprar una propiedad de lujo en la costa española plantea preguntas que la mayoría de las personas no puede responder por sí sola.",
@@ -291,6 +298,16 @@ const translations = {
     about_quote: "Lo que sea necesario para hacerlo bien, aseguraremos su perla.",
     about_signature: "Lotte Wennink, Fundadora",
 
+    team1_name: "Lotte Wennink",
+    team1_role: "Fundadora y Directora",
+
+    team2_name: "Clementine Lanchier",
+    team2_role: "Asesora de Adquisición Inmobiliaria",
+    team2_teaser: "Clementine Lanchier aporta algo verdaderamente excepcional a la representación del comprador: más de veinte años en diseño y organización, y más de una década en el sector inmobiliario",
+    team2_toggle: "Leer más",
+    team2_p1: "del lado del vendedor. De las casas de moda parisinas a eventos de marcas internacionales por toda Europa, aprendió a ver detalle, estructura y potencial donde otros simplemente no lo ven.",
+    team2_p2: "Al haber trabajado del lado del vendedor, sabe exactamente cómo piensan los vendedores y dónde suelen esconderse los problemas. Home stager certificada y agente inmobiliaria certificada en Cataluña (AICAT, miembro de API), con dominio del francés, el español y el inglés, interpreta una propiedad como pocos saben hacerlo — y pone todo ello al servicio de los compradores.",
+
     regions_eyebrow: "DÓNDE TRABAJAMOS",
     regions_headline: "La costa mediterránea española, región por región.",
     regions_intro: "Nuestro enfoque es la costa mediterránea española. Le ayudamos a entender no solo la propiedad, sino la vida a su alrededor — el pueblo, la cultura, los vecinos, el ritmo de las estaciones.",
@@ -304,6 +321,7 @@ const translations = {
     region4_text: "Marbella y sus alrededores, soleada, con todos los servicios y perfectamente conectada, para quienes desean calidez todo el año.",
     region5_name: "Costa Blanca",
     region5_text: "Un clima suave, una arquitectura cuidada y un valor excepcional, espacio y luz sin concesiones.",
+    regions_closing: "En cada región en la que trabajamos, cuenta con un asesor local de adquisición inmobiliaria sobre el terreno y una red de confianza de abogados, inspectores y especialistas cuidadosamente seleccionados — de modo que, allá donde le lleve su búsqueda, tendrá la misma representación personal y el mismo conocimiento local.",
 
     testimonials_eyebrow: "EN SUS PROPIAS PALABRAS",
     testimonials_headline: "Cómo es trabajar con nosotros.",
@@ -345,6 +363,7 @@ const translations = {
     form_alt_link: "Escríbanos por WhatsApp",
     form_success_title: "Gracias.",
     form_success_text: "Hemos recibido su consulta. Lotte se pondrá en contacto en un plazo de dos días laborables.",
+    form_error: "Lo sentimos, se ha producido un error al enviar su consulta. Inténtelo de nuevo o escríbanos a lwennink@thepearlcompass.com.",
 
     footer_tagline: "Agencia compradora boutique para la costa mediterránea española.",
     footer_contact_label: "Contacto",

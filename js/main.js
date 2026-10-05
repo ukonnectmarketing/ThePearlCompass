@@ -172,11 +172,19 @@
     var trackHeight = 0;
 
     function layout() {
-      var listRect = list.getBoundingClientRect();
-      var firstRect = nums[0].getBoundingClientRect();
-      var lastRect = nums[nums.length - 1].getBoundingClientRect();
-      trackTop = firstRect.top - listRect.top + firstRect.height / 2;
-      trackHeight = (lastRect.top + lastRect.height / 2) - (firstRect.top + firstRect.height / 2);
+      // Sum offsetTop up to .process-list rather than using bounding rects:
+      // offsets ignore CSS transforms, so the active card's pop (and the
+      // reveal slide-in) can't skew the rail. Transformed cards become
+      // their number's offsetParent, hence walking the chain.
+      function topIn(el) {
+        var y = 0;
+        while (el && el !== list) { y += el.offsetTop; el = el.offsetParent; }
+        return y;
+      }
+      var first = nums[0];
+      var last = nums[nums.length - 1];
+      trackTop = topIn(first) + first.offsetHeight / 2;
+      trackHeight = (topIn(last) + last.offsetHeight / 2) - trackTop;
       track.style.top = trackTop + "px";
       track.style.height = trackHeight + "px";
     }
@@ -219,10 +227,11 @@
     window.addEventListener("scroll", updateProgress, { passive: true });
   })();
 
-  /* ---- Lead form (front-end only; wire to a real endpoint before launch) ---- */
+  /* ---- Lead form: posted to Web3Forms, which emails it to Lotte ---- */
   var form = document.getElementById("leadForm");
   var fields = document.getElementById("formFields");
   var success = document.getElementById("formSuccess");
+  var formError = document.getElementById("formError");
 
   var fLanguageField = document.getElementById("fLanguage");
   if (fLanguageField) {
@@ -237,7 +246,34 @@
       form.reportValidity();
       return;
     }
-    fields.hidden = true;
-    success.hidden = false;
+    var button = form.querySelector('button[type="submit"]');
+    var data = new FormData(form);
+    // Send the readable option labels rather than internal values
+    // (e.g. "Costa Brava" instead of "costabrava") so the email reads well.
+    form.querySelectorAll("select").forEach(function (sel) {
+      data.set(sel.name, sel.options[sel.selectedIndex].text);
+    });
+    data.set("consent", "Yes");
+
+    button.disabled = true;
+    formError.hidden = true;
+
+    fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: { Accept: "application/json" },
+      body: data
+    })
+      .then(function (res) { return res.json(); })
+      .then(function (json) {
+        if (!json.success) throw new Error(json.message || "Submission failed");
+        fields.hidden = true;
+        success.hidden = false;
+      })
+      .catch(function () {
+        formError.hidden = false;
+      })
+      .then(function () {
+        button.disabled = false;
+      });
   });
 })();
