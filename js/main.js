@@ -240,8 +240,44 @@
     });
   }
 
+  /* Two steps: basic contact details first, then their wishes. */
+  var step1 = document.getElementById("formStep1");
+  var step2 = document.getElementById("formStep2");
+  var progressFill = document.getElementById("formProgressFill");
+
+  function showStep(n) {
+    step1.hidden = n !== 1;
+    step2.hidden = n !== 2;
+    progressFill.style.width = n === 1 ? "50%" : "100%";
+    var first = (n === 1 ? step1 : step2).querySelector("input, select, textarea");
+    if (first) first.focus({ preventScroll: true });
+  }
+
+  function goToStep2() {
+    var invalid = Array.prototype.find.call(
+      step1.querySelectorAll("input, select, textarea"),
+      function (el) { return !el.checkValidity(); }
+    );
+    if (invalid) {
+      invalid.reportValidity();
+      return;
+    }
+    showStep(2);
+  }
+
+  document.getElementById("formNext").addEventListener("click", goToStep2);
+  document.getElementById("formBack").addEventListener("click", function () {
+    formError.hidden = true;
+    showStep(1);
+  });
+
   form.addEventListener("submit", function (e) {
     e.preventDefault();
+    // Enter pressed inside step 1 should advance, not submit.
+    if (!step1.hidden) {
+      goToStep2();
+      return;
+    }
     if (!form.checkValidity()) {
       form.reportValidity();
       return;

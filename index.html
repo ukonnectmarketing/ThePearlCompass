@@ -290,69 +290,90 @@
           <input type="hidden" name="from_name" value="The Pearl Compass website">
           <!-- Honeypot: hidden from people, bots that tick it are rejected. -->
           <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-          <div class="field">
-            <label for="fName" data-i18n="form_name">Full name</label>
-            <input type="text" id="fName" name="name" required>
+          <div class="form-progress" aria-hidden="true">
+            <span class="form-progress-bar"><span class="form-progress-fill" id="formProgressFill"></span></span>
           </div>
-          <div class="field-row">
+
+          <fieldset class="form-step" id="formStep1">
+            <legend class="form-step-head">
+              <span class="form-step-count" data-i18n="form_step1_count">Step 1 of 2</span>
+              <span class="form-step-title" data-i18n="form_step1_title">Your details</span>
+            </legend>
             <div class="field">
-              <label for="fEmail" data-i18n="form_email">Email address</label>
-              <input type="email" id="fEmail" name="email" required>
+              <label for="fName" data-i18n="form_name">Full name</label>
+              <input type="text" id="fName" name="name" required>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="fEmail" data-i18n="form_email">Email address</label>
+                <input type="email" id="fEmail" name="email" required>
+              </div>
+              <div class="field">
+                <label for="fPhone" data-i18n="form_phone">Phone / WhatsApp</label>
+                <input type="tel" id="fPhone" name="phone" required>
+              </div>
+            </div>
+            <button type="button" class="btn btn-primary btn-full" id="formNext" data-i18n="form_next">Continue</button>
+          </fieldset>
+
+          <fieldset class="form-step" id="formStep2" hidden>
+            <legend class="form-step-head">
+              <span class="form-step-count" data-i18n="form_step2_count">Step 2 of 2</span>
+              <span class="form-step-title" data-i18n="form_step2_title">Your wishes</span>
+            </legend>
+            <div class="field-row">
+              <div class="field">
+                <label for="fRegion" data-i18n="form_region">Region of interest</label>
+                <select id="fRegion" name="region">
+                  <option value="any" data-i18n="form_region_opt_any">Not sure yet</option>
+                  <option value="sitges" data-i18n="region1_name">Sitges &amp; Barcelona Coast</option>
+                  <option value="costabrava" data-i18n="region2_name">Costa Brava</option>
+                  <option value="balearics" data-i18n="region3_name">Balearic Islands</option>
+                  <option value="costadelsol" data-i18n="region4_name">Costa del Sol</option>
+                  <option value="costablanca" data-i18n="region5_name">Costa Blanca</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="fBudget" data-i18n="form_budget">Indicative budget</label>
+                <select id="fBudget" name="budget">
+                  <option value="any" data-i18n="form_budget_opt_any">Not sure yet</option>
+                  <option value="500-750k" data-i18n="form_budget_opt1">€500K-750K</option>
+                  <option value="750k-1m" data-i18n="form_budget_opt2">€750K-1M</option>
+                  <option value="1-2m" data-i18n="form_budget_opt3">€1-2M</option>
+                  <option value="2-5m" data-i18n="form_budget_opt4">€2-5M</option>
+                  <option value="5m+" data-i18n="form_budget_opt5">€5M+</option>
+                </select>
+              </div>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="fCountry" data-i18n="form_country">Country of residence</label>
+                <input type="text" id="fCountry" name="country">
+              </div>
+              <div class="field">
+                <label for="fLanguage" data-i18n="form_language">Preferred language</label>
+                <select id="fLanguage" name="language">
+                  <option value="en" data-i18n="form_language_opt_en">English</option>
+                  <option value="nl" data-i18n="form_language_opt_nl">Dutch</option>
+                  <option value="es" data-i18n="form_language_opt_es">Spanish</option>
+                  <option value="fr" data-i18n="form_language_opt_fr">French</option>
+                </select>
+              </div>
             </div>
             <div class="field">
-              <label for="fPhone" data-i18n="form_phone">Phone / WhatsApp</label>
-              <input type="tel" id="fPhone" name="phone" required>
+              <label for="fMessage" data-i18n="form_message">Tell us about your plans</label>
+              <textarea id="fMessage" name="message" rows="3" data-i18n-placeholder="form_message_ph" placeholder="e.g. timeline, must-haves, whether you've visited the area before…"></textarea>
             </div>
-          </div>
-          <div class="field-row">
-            <div class="field">
-              <label for="fCountry" data-i18n="form_country">Country of residence</label>
-              <input type="text" id="fCountry" name="country">
+            <label class="consent">
+              <input type="checkbox" id="fConsent" name="consent" required>
+              <span data-i18n="form_consent">I agree to be contacted by The Pearl Compass about my enquiry.</span>
+            </label>
+            <p class="form-error" id="formError" role="alert" data-i18n="form_error" hidden>Sorry, something went wrong sending your enquiry. Please try again, or email us at lwennink@thepearlcompass.com.</p>
+            <div class="form-actions">
+              <button type="button" class="btn btn-ghost" id="formBack" data-i18n="form_back">Back</button>
+              <button type="submit" class="btn btn-primary" data-i18n="form_submit">Request Your Private Consultation</button>
             </div>
-            <div class="field">
-              <label for="fRegion" data-i18n="form_region">Region of interest</label>
-              <select id="fRegion" name="region">
-                <option value="any" data-i18n="form_region_opt_any">Not sure yet</option>
-                <option value="sitges" data-i18n="region1_name">Sitges &amp; Barcelona Coast</option>
-                <option value="costabrava" data-i18n="region2_name">Costa Brava</option>
-                <option value="balearics" data-i18n="region3_name">Balearic Islands</option>
-                <option value="costadelsol" data-i18n="region4_name">Costa del Sol</option>
-                <option value="costablanca" data-i18n="region5_name">Costa Blanca</option>
-              </select>
-            </div>
-          </div>
-          <div class="field-row">
-            <div class="field">
-              <label for="fLanguage" data-i18n="form_language">Preferred language</label>
-              <select id="fLanguage" name="language">
-                <option value="en" data-i18n="form_language_opt_en">English</option>
-                <option value="nl" data-i18n="form_language_opt_nl">Dutch</option>
-                <option value="es" data-i18n="form_language_opt_es">Spanish</option>
-                <option value="fr" data-i18n="form_language_opt_fr">French</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="fBudget" data-i18n="form_budget">Indicative budget</label>
-              <select id="fBudget" name="budget">
-                <option value="any" data-i18n="form_budget_opt_any">Not sure yet</option>
-                <option value="500-750k" data-i18n="form_budget_opt1">€500K-750K</option>
-                <option value="750k-1m" data-i18n="form_budget_opt2">€750K-1M</option>
-                <option value="1-2m" data-i18n="form_budget_opt3">€1-2M</option>
-                <option value="2-5m" data-i18n="form_budget_opt4">€2-5M</option>
-                <option value="5m+" data-i18n="form_budget_opt5">€5M+</option>
-              </select>
-            </div>
-          </div>
-          <div class="field">
-            <label for="fMessage" data-i18n="form_message">Tell us about your plans</label>
-            <textarea id="fMessage" name="message" rows="3" data-i18n-placeholder="form_message_ph" placeholder="e.g. timeline, must-haves, whether you've visited the area before…"></textarea>
-          </div>
-          <label class="consent">
-            <input type="checkbox" id="fConsent" name="consent" required>
-            <span data-i18n="form_consent">I agree to be contacted by The Pearl Compass about my enquiry.</span>
-          </label>
-          <p class="form-error" id="formError" role="alert" data-i18n="form_error" hidden>Sorry, something went wrong sending your enquiry. Please try again, or email us at lwennink@thepearlcompass.com.</p>
-          <button type="submit" class="btn btn-primary btn-full" data-i18n="form_submit">Request Your Private Consultation</button>
+          </fieldset>
           <p class="form-note" data-i18n="form_confidential">Your enquiry is completely confidential. We'll reply within two business days to arrange a first, no-obligation conversation.</p>
         </div>
       </form>
