@@ -261,6 +261,9 @@ p { margin: 0 0 1em; }
   position: absolute;
   inset: 0;
   background:
+    /* Black fade rising from the bottom edge, so the intro text and
+       buttons read clearly over the photo. */
+    linear-gradient(0deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.45) 25%, rgba(0,0,0,0) 60%),
     linear-gradient(180deg, rgba(20,13,8,0.18) 0%, rgba(20,13,8,0.08) 35%, rgba(20,13,8,0.3) 100%);
 }
 .hero-compass {
@@ -281,54 +284,47 @@ p { margin: 0 0 1em; }
   to { transform: rotate(360deg); }
 }
 .hero-content {
-  /* No max-width override here on purpose: .hero-content shares the
-     .container class, so leaving container's max-width in place keeps
-     its left edge aligned with the header/logo above it. Individual
-     children (hero-sub) constrain their own line length instead.
-     width:100% matters here because .hero-content is a flex item (child
-     of .hero) — flex items shrink-to-fit by default instead of filling
-     the row the way a plain block-level .container does, which without
-     this would center the shrunk content instead of aligning it left. */
+  /* Single centred column: headline, video, intro text, buttons.
+     width:100% matters because .hero-content is a flex item (child of
+     .hero), which would otherwise shrink to fit its content. */
   position: relative;
   z-index: 1;
   width: 100%;
-  padding-top: 160px;
+  padding-top: 140px;
   padding-bottom: 80px;
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 56px;
+  justify-content: center;
+  text-align: center;
 }
-.hero-text { flex: 1; min-width: 0; max-width: 640px; }
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+}
 .hero-content h1 { color: #fff; text-shadow: 0 2px 6px rgba(0,0,0,0.55), 0 10px 30px rgba(0,0,0,0.5); }
 .hero-content h1 .accent { color: #fff; }
 .hero-sub {
   color: rgba(255,255,255,0.88);
   font-size: 1.1rem;
-  max-width: 560px;
-  margin-bottom: 2em;
+  max-width: 600px;
+  margin: 0 auto 2em;
   text-shadow: 0 1px 3px rgba(0,0,0,0.55), 0 4px 16px rgba(0,0,0,0.45);
 }
-.hero-ctas { display: flex; flex-wrap: wrap; gap: 16px; }
-/* Desktop only: nudge the intro text and buttons down together so the
-   subheader starts just below the sea horizon in the hero photo. A
-   relative offset keeps the headline exactly where it is (margin would
-   re-centre the whole block and lift the headline). */
-@media (min-width: 981px) {
-  .hero-sub, .hero-ctas { position: relative; top: 28px; }
-}
+.hero-ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
 
-/* Video card: autoplaying, muted, controls-free background video. */
+/* Video card: autoplaying, muted, controls-free video between the
+   headline and the intro text. */
 .hero-video {
   position: relative;
-  flex-shrink: 0;
-  width: min(46vw, 520px);
-  aspect-ratio: 16/10;
+  width: min(100%, 860px);
+  aspect-ratio: 16/9;
   border-radius: 6px;
   overflow: hidden;
   box-shadow: 0 30px 70px -25px rgba(5,10,20,0.55);
   border: 1px solid rgba(255,255,255,0.25);
-  margin-top: 2.2rem;
+  margin: 1.2rem 0 1.8rem;
 }
 .hero-video video {
   position: absolute;
@@ -874,14 +870,6 @@ p { margin: 0 0 1em; }
    RESPONSIVE
    ============================================================ */
 @media (max-width: 980px) {
-  /* Hero text + video side by side needs real width; below this, stack
-     the video under the text instead. */
-  .hero-content { flex-direction: column; align-items: stretch; gap: 40px; }
-  .hero-text { max-width: none; }
-  /* Mobile/stacked layout only: video appears above the headline instead
-     of below. Desktop keeps the side-by-side order from the markup. */
-  .hero-video { order: -1; width: 100%; aspect-ratio: 16/9; margin-top: 0; }
-
   /* Zigzag timeline needs real width either side of the rail; below this,
      collapse back to a single column with the rail running down the left. */
   .process-list {
