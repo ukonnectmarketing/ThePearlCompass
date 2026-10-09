@@ -310,6 +310,13 @@ p { margin: 0 0 1em; }
   text-shadow: 0 1px 3px rgba(0,0,0,0.55), 0 4px 16px rgba(0,0,0,0.45);
 }
 .hero-ctas { display: flex; flex-wrap: wrap; gap: 16px; }
+/* Desktop only: nudge the intro text and buttons down together so the
+   subheader starts just below the sea horizon in the hero photo. A
+   relative offset keeps the headline exactly where it is (margin would
+   re-centre the whole block and lift the headline). */
+@media (min-width: 981px) {
+  .hero-sub, .hero-ctas { position: relative; top: 28px; }
+}
 
 /* Video card: autoplaying, muted, controls-free background video. */
 .hero-video {
