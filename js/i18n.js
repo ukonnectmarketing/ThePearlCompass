@@ -6,6 +6,8 @@ const translations = {
     nav_process: "How We Work",
     nav_team: "Our Team",
     nav_regions: "Regions",
+    video_sound_on: "Turn sound on",
+    video_sound_off: "Turn sound off",
     cta_book: "Book a Consultation",
 
     hero_headline_html: "Buying property in Spain<br>should feel exciting,<br><span class=\"accent\">not overwhelming.</span>",
@@ -140,6 +142,8 @@ const translations = {
     nav_process: "Onze Werkwijze",
     nav_team: "Ons Team",
     nav_regions: "Regio's",
+    video_sound_on: "Geluid aan",
+    video_sound_off: "Geluid uit",
     cta_book: "Plan een Gesprek",
 
     hero_headline_html: "Een huis kopen in Spanje<br>hoort opwindend te voelen,<br><span class=\"accent\">niet overweldigend.</span>",
@@ -273,6 +277,8 @@ const translations = {
     nav_process: "Cómo Trabajamos",
     nav_team: "Nuestro Equipo",
     nav_regions: "Regiones",
+    video_sound_on: "Activar sonido",
+    video_sound_off: "Desactivar sonido",
     cta_book: "Reserve una Consulta",
 
     hero_headline_html: "Comprar una propiedad en España<br>debería sentirse emocionante,<br><span class=\"accent\">no abrumador.</span>",

@@ -53,8 +53,11 @@
     track.style.animation = "testimonial-scroll " + duration + "s linear infinite";
   }
 
+  var currentDict = translations.en;
+
   function applyLanguage(lang) {
     var dict = translations[lang] || translations.en;
+    currentDict = dict;
 
     document.documentElement.setAttribute("lang", lang);
     if (dict.meta_title) document.title = dict.meta_title;
@@ -72,6 +75,11 @@
     document.querySelectorAll("[data-i18n-placeholder]").forEach(function (el) {
       var key = el.getAttribute("data-i18n-placeholder");
       if (dict[key] !== undefined) el.setAttribute("placeholder", dict[key]);
+    });
+
+    document.querySelectorAll("[data-i18n-aria]").forEach(function (el) {
+      var key = el.getAttribute("data-i18n-aria");
+      if (dict[key] !== undefined) el.setAttribute("aria-label", dict[key]);
     });
 
     document.querySelectorAll(".lang-btn").forEach(function (btn) {
@@ -167,6 +175,38 @@
         else if (v.src) v.pause();
       });
     }, { rootMargin: "300px 0px" }).observe(v);
+
+    /* Sound toggle: autoplay has to start muted, so visitors opt in to
+       sound via the corner button or by clicking/tapping the video. */
+    var wrap = v.closest(".section-video");
+    var soundBtn = wrap && wrap.querySelector(".video-sound");
+    if (!soundBtn) return;
+
+    function setSound(on) {
+      v.muted = !on;
+      soundBtn.setAttribute("aria-pressed", on ? "true" : "false");
+      var key = on ? "video_sound_off" : "video_sound_on";
+      soundBtn.setAttribute("data-i18n-aria", key);
+      if (currentDict[key] !== undefined) soundBtn.setAttribute("aria-label", currentDict[key]);
+    }
+
+    function toggleSound() {
+      setSound(v.muted);
+      var p = v.play();
+      // If the browser refuses audible playback, fall back to muted so the
+      // video keeps running rather than freezing.
+      if (p && p.catch) p.catch(function () {
+        setSound(false);
+        var p2 = v.play();
+        if (p2 && p2.catch) p2.catch(function () {});
+      });
+    }
+
+    soundBtn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      toggleSound();
+    });
+    wrap.addEventListener("click", toggleSound);
   });
 
   /* ---- "Read more" folds: animate open/close instead of snapping ---- */
