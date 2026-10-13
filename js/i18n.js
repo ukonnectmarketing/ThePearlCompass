@@ -39,7 +39,7 @@ const translations = {
     step4_title: "Purchase & Notary",
     step4_text: "We manage the signing, notary and transfer, so nothing is finalised until you fully understand it.",
     step5_title: "Settling In & Aftercare",
-    step5_text: "From utilities to insurance, we help you settle in — and stay your point of contact long after.",
+    step5_text: "From utilities to insurances, we help you settle in — and stay your point of contact long after.",
 
     about_headline: "Meet the team behind The Pearl Compass.",
     about_p1: "Lotte began her real estate journey over two decades ago, buying, renovating and successfully selling her own properties long before it became her profession.",
@@ -47,16 +47,15 @@ const translations = {
     about_p3: "When she moved to Spain and experienced the buyer's side first-hand, she found a market where almost no one represented the buyer, and where service fell far short of what international clients expect. The Pearl Compass was born to change that.",
     about_p4: "A boutique agency built on personal service and true local presence. Wherever you're looking along the coast, you have a dedicated advisor on the ground who knows the region intimately — supported by a trusted local network of lawyers, advisers and specialists. Personal, precise, and never templated.",
     about_quote: "Whatever it takes to do it right, we will secure your pearl.",
-    about_signature: "Lotte Wennink, Founder & Director",
 
     team1_name: "Lotte Wennink",
     team1_role: "Founder & Director",
 
     team2_name: "Clementine Lanchier",
     team2_role: "Property Acquisition Advisor",
-    team2_teaser: "Clementine Lanchier brings something genuinely rare to buyer representation: over twenty years across design and organisation, and more than a decade in real estate",
+    team2_teaser: "Clementine Lanchier brings something genuinely rare to buyer representation: over twenty years across design and organisation, and more than a decade in real estate.",
     team2_toggle: "Read more",
-    team2_p1: "on the listing side. From Parisian fashion houses to international brand events across Europe, she learned to see detail, structure and potential where others simply don't.",
+    team2_p1: "From Parisian fashion houses to international brand events across Europe, she learned to see detail, structure and potential where others simply don't.",
     team2_p2: "Because she has worked the listing side, she knows exactly how sellers think and where the gaps tend to hide. A certified home stager and certified real estate agent in Catalonia (AICAT, member of API), fluent in French, Spanish and English, she reads a property the way most people cannot — and puts that entirely at the service of buyers.",
 
     regions_eyebrow: "WHERE WE WORK",
@@ -178,16 +177,15 @@ const translations = {
     about_p3: "Toen ze naar Spanje verhuisde en de aankoop zelf aan den lijve ondervond, trof ze een markt waarin bijna niemand de koper vertegenwoordigde, en waar de dienstverlening ver achterbleef bij wat internationale klanten mogen verwachten. The Pearl Compass is ontstaan om dat te veranderen.",
     about_p4: "Een boutique kantoor gebouwd op persoonlijke service en een oprechte lokale aanwezigheid. Waar u ook zoekt langs de kust, u heeft een toegewijde adviseur ter plaatse die de regio door en door kent — ondersteund door een vertrouwd lokaal netwerk van advocaten, adviseurs en specialisten. Persoonlijk, precies, en nooit standaard.",
     about_quote: "Wat er ook voor nodig is om het goed te doen, wij zullen uw parel veiligstellen.",
-    about_signature: "Lotte Wennink, Oprichter",
 
     team1_name: "Lotte Wennink",
     team1_role: "Oprichter & Directeur",
 
     team2_name: "Clementine Lanchier",
     team2_role: "Aankoopadviseur Vastgoed",
-    team2_teaser: "Clementine Lanchier brengt iets werkelijk zeldzaams mee naar het vertegenwoordigen van kopers: ruim twintig jaar ervaring in design en organisatie, en meer dan tien jaar in vastgoed",
+    team2_teaser: "Clementine Lanchier brengt iets werkelijk zeldzaams mee naar het vertegenwoordigen van kopers: ruim twintig jaar ervaring in design en organisatie, en meer dan tien jaar in vastgoed.",
     team2_toggle: "Lees meer",
-    team2_p1: "aan de verkoopkant. Van Parijse modehuizen tot internationale merkevenementen in heel Europa: ze leerde detail, structuur en potentieel te zien waar anderen dat simpelweg niet doen.",
+    team2_p1: "Van Parijse modehuizen tot internationale merkevenementen in heel Europa: ze leerde detail, structuur en potentieel te zien waar anderen dat simpelweg niet doen.",
     team2_p2: "Omdat ze aan de verkoopkant heeft gewerkt, weet ze precies hoe verkopers denken en waar de valkuilen zich meestal verschuilen. Als gecertificeerd home stager en gecertificeerd makelaar in Catalonië (AICAT, lid van API), vloeiend in het Frans, Spaans en Engels, leest ze een woning zoals weinig anderen dat kunnen — en zet ze dat volledig in ten dienste van kopers.",
 
     regions_eyebrow: "WAAR WIJ ACTIEF ZIJN",
@@ -308,16 +306,15 @@ const translations = {
     about_p3: "Cuando se mudó a España y vivió en primera persona el lado del comprador, encontró un mercado en el que casi nadie representaba al comprador, y donde el servicio quedaba muy por debajo de lo que esperan los clientes internacionales. The Pearl Compass nació para cambiar eso.",
     about_p4: "Una agencia boutique basada en un servicio personal y una presencia local genuina. Dondequiera que busque en la costa, cuenta con un asesor dedicado sobre el terreno que conoce la región a fondo — respaldado por una red local de confianza de abogados, asesores y especialistas. Personal, preciso, y nunca estandarizado.",
     about_quote: "Lo que sea necesario para hacerlo bien, aseguraremos su perla.",
-    about_signature: "Lotte Wennink, Fundadora",
 
     team1_name: "Lotte Wennink",
     team1_role: "Fundadora y Directora",
 
     team2_name: "Clementine Lanchier",
     team2_role: "Asesora de Adquisición Inmobiliaria",
-    team2_teaser: "Clementine Lanchier aporta algo verdaderamente excepcional a la representación del comprador: más de veinte años en diseño y organización, y más de una década en el sector inmobiliario",
+    team2_teaser: "Clementine Lanchier aporta algo verdaderamente excepcional a la representación del comprador: más de veinte años en diseño y organización, y más de una década en el sector inmobiliario.",
     team2_toggle: "Leer más",
-    team2_p1: "del lado del vendedor. De las casas de moda parisinas a eventos de marcas internacionales por toda Europa, aprendió a ver detalle, estructura y potencial donde otros simplemente no lo ven.",
+    team2_p1: "De las casas de moda parisinas a eventos de marcas internacionales por toda Europa, aprendió a ver detalle, estructura y potencial donde otros simplemente no lo ven.",
     team2_p2: "Al haber trabajado del lado del vendedor, sabe exactamente cómo piensan los vendedores y dónde suelen esconderse los problemas. Home stager certificada y agente inmobiliaria certificada en Cataluña (AICAT, miembro de API), con dominio del francés, el español y el inglés, interpreta una propiedad como pocos saben hacerlo — y pone todo ello al servicio de los compradores.",
 
     regions_eyebrow: "DÓNDE TRABAJAMOS",
