@@ -153,6 +153,68 @@
   window.addEventListener("scroll", updateNav, { passive: true });
   updateNav();
 
+  /* ---- Lazy-load and autoplay the section video near the viewport ---- */
+  document.querySelectorAll("video[data-src]").forEach(function (v) {
+    function start() {
+      if (!v.src) v.src = v.getAttribute("data-src");
+      var p = v.play();
+      if (p && p.catch) p.catch(function () {});
+    }
+    if (!("IntersectionObserver" in window)) { start(); return; }
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) start();
+        else if (v.src) v.pause();
+      });
+    }, { rootMargin: "300px 0px" }).observe(v);
+  });
+
+  /* ---- "Read more" folds: animate open/close instead of snapping ---- */
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.querySelectorAll("details.team-member-more").forEach(function (details) {
+    var summary = details.querySelector("summary");
+    var anim = null;
+
+    function finish(open) {
+      details.open = open;
+      details.style.height = "";
+      details.style.overflow = "";
+      anim = null;
+    }
+
+    summary.addEventListener("click", function (e) {
+      if (reduceMotion || !details.animate) return; // native toggle
+      e.preventDefault();
+      var opening = anim ? !details.classList.contains("is-opening") : !details.open;
+      var startH = details.offsetHeight;
+      if (anim) anim.cancel();
+      details.style.overflow = "hidden";
+
+      var endH;
+      if (opening) {
+        details.open = true;
+        endH = details.scrollHeight;
+        details.classList.add("is-opening");
+        // Let the revealed paragraphs drift in as the panel opens.
+        details.querySelectorAll("p").forEach(function (p, i) {
+          p.animate(
+            [{ opacity: 0, transform: "translateY(-6px)" }, { opacity: 1, transform: "none" }],
+            { duration: 420, delay: 80 + i * 70, easing: "ease-out", fill: "backwards" }
+          );
+        });
+      } else {
+        endH = summary.offsetHeight;
+        details.classList.remove("is-opening");
+      }
+
+      anim = details.animate(
+        { height: [startH + "px", endH + "px"] },
+        { duration: opening ? 480 : 380, easing: "cubic-bezier(0.22, 1, 0.36, 1)" }
+      );
+      anim.onfinish = function () { finish(opening); };
+    });
+  });
+
   /* ---- Reveal-on-scroll ---- */
   var revealTargets = document.querySelectorAll(
     ".risk-item, .persona-card, .process-item, .region-card, .testimonial-carousel, .about-media, .about-copy, .section-head"

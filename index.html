@@ -59,9 +59,6 @@
     <div class="container hero-content">
       <div class="hero-text">
         <h1 data-i18n-html="hero_headline_html">Buying property in Spain<br>should feel exciting,<br><span class="accent">not overwhelming.</span></h1>
-        <div class="hero-video" id="heroVideo">
-          <video src="assets/hero-v3.mp4" poster="assets/images/region-costadelsol.jpg" autoplay muted loop playsinline preload="auto"></video>
-        </div>
         <p class="hero-sub" data-i18n="hero_sub">The Pearl Compass is a boutique buyers' agency for those acquiring luxury property on the Spanish Mediterranean — from the Costa Brava to Marbella and the Balearic Islands. We work exclusively on your behalf, and no one else's.</p>
         <div class="hero-ctas">
           <a href="#contact" class="btn btn-primary" data-i18n="hero_cta_primary">Book Your Private Consultation</a>
@@ -70,12 +67,21 @@
           </a>
         </div>
       </div>
+
+      <div class="hero-photo">
+        <img src="assets/groep.jpg" alt="Lotte Wennink and Clementine Lanchier of The Pearl Compass" width="1377" height="1013" loading="eager">
+      </div>
     </div>
   </section>
 
   <!-- ================= RISK / FEAR SECTION ================= -->
   <section class="section" id="approach">
     <div class="container">
+      <div class="section-video">
+        <!-- src is filled in from data-src by JS once the video nears the
+             viewport, so the 16 MB file doesn't load with the page. -->
+        <video data-src="assets/hero-v3.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+      </div>
       <div class="section-head">
         <p class="eyebrow" data-i18n="risk_eyebrow">BEFORE YOU COMMIT TO ANYTHING</p>
         <h2 data-i18n="risk_headline">Buying luxury property on the Spanish coast raises questions most people can't answer alone.</h2>
@@ -161,10 +167,8 @@
 
   <!-- ================= ABOUT LOTTE ================= -->
   <section class="section section-alt" id="about">
+    <img src="assets/images/team-emblem.png" alt="" aria-hidden="true" class="team-emblem" loading="lazy">
     <div class="container about-grid">
-      <div class="about-media">
-        <img src="assets/groep.jpg" alt="Lotte Wennink and Clementine Lanchier of The Pearl Compass" loading="lazy">
-      </div>
       <div class="about-copy">
         <h2 data-i18n="about_headline">Meet the team behind The Pearl Compass.</h2>
         <p data-i18n="about_p4">A boutique agency built on personal service and true local presence. Wherever you're looking along the coast, you have a dedicated advisor on the ground who knows the region intimately — supported by a trusted local network of lawyers, advisers and specialists. Personal, precise, and never templated.</p>

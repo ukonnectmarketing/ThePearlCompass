@@ -156,7 +156,7 @@ const translations = {
     risk_item2_text: "Verborgen gebreken, structurele problemen, illegale aanbouw. Wij brengen aan het licht wat de verkoper niet vertelt.",
     risk_item3_title: "Wie staat hier nu echt aan mijn kant?",
     risk_item3_text: "In Spanje werken de meeste makelaars voor de verkoper, of voor beide partijen tegelijk. Wij vertegenwoordigen u, en niemand anders — zonder enig belangenconflict, ooit.",
-    risk_item4_title: "Komt er later nog een juridische of fiscale verrassing?",
+    risk_item4_title: "Komt er later nog een verrassing?",
     risk_item4_text: "De papieren, belastingen en eigendomsstructuur, volledig doorgrond en helder uitgelegd vóórdat u tekent — nooit erna.",
     risk_item5_title: "Wat als ik de taal niet spreek?",
     risk_item5_text: "Elk gesprek, elk document en elke onderhandeling — volledig voor u geregeld, en helder uitgelegd in uw eigen taal",
