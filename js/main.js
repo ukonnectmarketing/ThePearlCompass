@@ -132,6 +132,27 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
+  /* ---- Nav: underline the link for the section currently in view ---- */
+  var navLinks = document.querySelectorAll(".main-nav a");
+  var navTargets = Array.prototype.map.call(navLinks, function (a) {
+    var el = document.querySelector(a.getAttribute("href"));
+    return el && el.closest("section");
+  });
+  function updateNav() {
+    var line = window.innerHeight * 0.35;
+    var current = -1;
+    navTargets.forEach(function (sec, i) {
+      if (sec && sec.getBoundingClientRect().top <= line) current = i;
+    });
+    // Past the last linked section's bottom (e.g. testimonials, contact):
+    // nothing is current.
+    var last = navTargets[current];
+    if (last && last.getBoundingClientRect().bottom < line) current = -1;
+    navLinks.forEach(function (a, i) { a.classList.toggle("is-current", i === current); });
+  }
+  window.addEventListener("scroll", updateNav, { passive: true });
+  updateNav();
+
   /* ---- Reveal-on-scroll ---- */
   var revealTargets = document.querySelectorAll(
     ".risk-item, .persona-card, .process-item, .region-card, .testimonial-carousel, .about-media, .about-copy, .section-head"

@@ -44,6 +44,10 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+section[id] { scroll-margin-top: var(--header-h); }
+/* Regions link lands on the photo grid itself (skipping the heading) so
+   the two large top photos are fully in view. */
+#regionGrid { scroll-margin-top: calc(var(--header-h) + 24px); }
 
 body {
   margin: 0;
@@ -172,6 +176,39 @@ p { margin: 0 0 1em; }
   transition: filter 0.3s ease;
 }
 .site-header.scrolled .brand-mark { filter: brightness(0.6) contrast(1.35); }
+
+/* Section links. White over the hero photo, navy once the header bar
+   turns light; the link for the section in view gets an underline. */
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+  margin: 0 auto;
+}
+.main-nav a {
+  position: relative;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.45);
+  padding: 6px 0;
+  transition: color 0.25s ease;
+}
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.main-nav a:hover::after,
+.main-nav a.is-current::after { transform: scaleX(1); }
+.site-header.scrolled .main-nav a { color: var(--navy); text-shadow: none; }
+.site-header.scrolled .main-nav a:hover { color: var(--gold-dark); }
 
 .header-actions {
   display: flex;
@@ -693,6 +730,7 @@ p { margin: 0 0 1em; }
 }
 @media (prefers-reduced-motion: reduce) {
   .testimonial-track { animation: none; }
+  html { scroll-behavior: auto; }
 }
 .testimonial-card {
   flex: 0 0 auto;
@@ -799,7 +837,7 @@ p { margin: 0 0 1em; }
   display: block;
   height: 100%;
   width: 50%;
-  background: var(--gold);
+  background: var(--navy);
   transition: width 0.45s ease;
 }
 .form-step { border: 0; padding: 0; margin: 0; min-width: 0; }
@@ -814,7 +852,7 @@ p { margin: 0 0 1em; }
   font-size: 0.72rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--navy);
   margin-bottom: 6px;
 }
 .form-step-title {
@@ -852,18 +890,42 @@ p { margin: 0 0 1em; }
    FOOTER
    ============================================================ */
 .site-footer {
+  position: relative;
+  overflow: hidden;
   background: var(--navy);
   color: rgba(255,255,255,0.78);
   padding: 70px 0 0;
 }
+/* Faint brand emblem tucked into the bottom-right corner, half cropped
+   by the footer edge. Purely decorative. */
+.footer-emblem {
+  position: absolute;
+  right: -90px;
+  bottom: -190px;
+  width: 300px;
+  height: auto;
+  opacity: 0.09;
+  pointer-events: none;
+}
+.site-footer > .container { position: relative; z-index: 1; }
 .footer-inner {
   display: grid;
   grid-template-columns: 1.4fr 1fr 1fr 1fr;
   gap: 40px;
   padding-bottom: 50px;
+  position: relative;
+}
+/* Divider stops short of the right edge so it doesn't run into the
+   emblem in the bottom-right corner. */
+.footer-inner::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 200px;
+  bottom: 0;
   border-bottom: 1px solid rgba(255,255,255,0.16);
 }
-.footer-mark { height: 130px; width: auto; margin-bottom: 16px; filter: brightness(0) invert(1) opacity(0.9); }
+.footer-mark { height: 110px; width: auto; margin: 10px 0 26px; }
 .footer-brand p { font-size: 0.9rem; max-width: 26em; }
 .footer-col h4 {
   font-family: var(--font-sans);
@@ -888,6 +950,9 @@ p { margin: 0 0 1em; }
    RESPONSIVE
    ============================================================ */
 @media (max-width: 980px) {
+  /* No room for section links next to logo + CTA; hide them. */
+  .main-nav { display: none; }
+
   /* Zigzag timeline needs real width either side of the rail; below this,
      collapse back to a single column with the rail running down the left. */
   .process-list {
@@ -917,6 +982,8 @@ p { margin: 0 0 1em; }
 }
 
 @media (max-width: 600px) {
+  .footer-inner::after { right: 140px; }
+  .footer-emblem { width: 220px; right: -70px; bottom: -140px; }
   .team-member { padding: 26px 22px; }
   .team-member-photo { width: 76px; height: 76px; }
   .container { padding: 0 20px; }
