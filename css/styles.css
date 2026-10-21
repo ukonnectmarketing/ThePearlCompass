@@ -358,6 +358,9 @@ p { margin: 0 0 1em; }
    re-centre the whole block and lift the headline). */
 @media (min-width: 981px) {
   .hero-sub, .hero-ctas { position: relative; top: 28px; }
+  /* Lift the headline and team photo together by the same amount so
+     their tops stay aligned. */
+  .hero-content h1, .hero-photo { position: relative; top: -6px; }
 }
 
 /* Team photo card on the right of the hero text (where the video used
