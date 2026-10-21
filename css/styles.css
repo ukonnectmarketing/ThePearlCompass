@@ -73,7 +73,7 @@ h1, h2, h3, h4 {
 }
 
 h1 { font-size: clamp(1.7rem, 3.5vw, 2.7rem); line-height: 1.1; }
-h2 { font-size: clamp(1.9rem, 3.4vw, 2.9rem); line-height: 1.18; }
+h2 { font-size: clamp(1.9rem, 3.4vw, 2.9rem); line-height: 1.18; color: var(--navy); }
 h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); }
 
 p { margin: 0 0 1em; }
@@ -386,7 +386,7 @@ p { margin: 0 0 1em; }
   color: var(--ink-soft);
 }
 .section-dark .eyebrow-light { color: var(--navy); }
-.section-dark .on-dark { color: var(--ink); }
+.section-dark .on-dark { color: var(--navy); }
 .on-dark { color: #fff; }
 
 /* Centred video card above the "Before you commit" heading. */
@@ -394,7 +394,11 @@ p { margin: 0 0 1em; }
   position: relative;
   width: min(100%, 1080px);
   aspect-ratio: 16/9;
-  margin: 0 auto 72px;
+  /* Centred with left/transform rather than auto margins so JS can widen
+     it past the container edges, up to the full viewport, on scroll. */
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0 0 72px;
   border-radius: 6px;
   overflow: hidden;
   background: var(--cream-dark);
@@ -677,7 +681,7 @@ p { margin: 0 0 1em; }
   font-family: var(--font-serif);
   font-style: italic;
   font-size: 1.5rem;
-  color: var(--ink);
+  color: var(--navy);
   margin-bottom: 0;
 }
 
@@ -887,6 +891,7 @@ p { margin: 0 0 1em; }
   cursor: pointer;
 }
 .consent input { margin-top: 3px; }
+.consent + .consent { margin-top: -14px; }
 
 .form-success { text-align: center; padding: 30px 10px; }
 .form-success h3 { color: var(--gold-dark); }

@@ -211,6 +211,41 @@
 
   /* ---- "Read more" folds: animate open/close instead of snapping ---- */
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---- Section video grows from its card size towards full width on scroll ---- */
+  var growVideo = document.querySelector(".section-video");
+  if (growVideo && !reduceMotion) {
+    var growStart = 0, growEnd = 1, baseWidth = 0, growTicking = false;
+
+    function measureGrow() {
+      growVideo.style.width = "";
+      baseWidth = growVideo.getBoundingClientRect().width;
+      var top = growVideo.getBoundingClientRect().top + window.scrollY;
+      var vh = window.innerHeight;
+      // Start once the card's top enters the viewport (never before the
+      // page's initial position), finish when it nears the top.
+      growStart = Math.max(0, top - vh);
+      growEnd = Math.max(growStart + 1, top - vh * 0.15);
+      applyGrow();
+    }
+
+    function applyGrow() {
+      growTicking = false;
+      var p = (window.scrollY - growStart) / (growEnd - growStart);
+      p = Math.min(1, Math.max(0, p));
+      p = p * p * (3 - 2 * p); // smoothstep
+      // Stop short of the screen edges: grow to 82% of the viewport width.
+      var full = Math.max(baseWidth, document.documentElement.clientWidth * 0.82);
+      growVideo.style.width = (baseWidth + (full - baseWidth) * p) + "px";
+    }
+
+    window.addEventListener("scroll", function () {
+      if (!growTicking) { growTicking = true; requestAnimationFrame(applyGrow); }
+    }, { passive: true });
+    window.addEventListener("resize", measureGrow);
+    window.addEventListener("load", measureGrow);
+    measureGrow();
+  }
   document.querySelectorAll("details.team-member-more").forEach(function (details) {
     var summary = details.querySelector("summary");
     var anim = null;
@@ -410,9 +445,10 @@
     // Send the readable option labels rather than internal values
     // (e.g. "Costa Brava" instead of "costabrava") so the email reads well.
     form.querySelectorAll("select").forEach(function (sel) {
-      data.set(sel.name, sel.options[sel.selectedIndex].text);
+      data.set(sel.name, sel.value ? sel.options[sel.selectedIndex].text : "");
     });
     data.set("consent", "Yes");
+    data.set("newsletter", form.newsletter.checked ? "Yes" : "No");
 
     button.disabled = true;
     formError.hidden = true;
