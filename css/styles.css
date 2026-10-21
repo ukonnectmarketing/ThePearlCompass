@@ -392,7 +392,7 @@ p { margin: 0 0 1em; }
 /* Centred video card above the "Before you commit" heading. */
 .section-video {
   position: relative;
-  width: min(100%, 1080px);
+  width: min(100%, 860px);
   aspect-ratio: 16/9;
   /* Centred with left/transform rather than auto margins so JS can widen
      it past the container edges, up to the full viewport, on scroll. */

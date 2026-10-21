@@ -234,8 +234,8 @@
       var p = (window.scrollY - growStart) / (growEnd - growStart);
       p = Math.min(1, Math.max(0, p));
       p = p * p * (3 - 2 * p); // smoothstep
-      // Stop short of the screen edges: grow to 82% of the viewport width.
-      var full = Math.max(baseWidth, document.documentElement.clientWidth * 0.82);
+      // Stop short of the screen edges: grow to 75% of the viewport width.
+      var full = Math.max(baseWidth, document.documentElement.clientWidth * 0.75);
       growVideo.style.width = (baseWidth + (full - baseWidth) * p) + "px";
     }
 
