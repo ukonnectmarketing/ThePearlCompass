@@ -360,7 +360,7 @@ p { margin: 0 0 1em; }
   .hero-sub, .hero-ctas { position: relative; top: 28px; }
   /* Lift the headline and team photo together by the same amount so
      their tops stay aligned. */
-  .hero-content h1, .hero-photo { position: relative; top: -6px; }
+  .hero-content h1, .hero-photo { position: relative; top: -8px; }
 }
 
 /* Team photo card on the right of the hero text (where the video used
