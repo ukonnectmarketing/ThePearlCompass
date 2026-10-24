@@ -5,8 +5,13 @@
   document.documentElement.classList.add("js");
 
   var STORAGE_KEY = "tpc_lang";
+  // Dutch and Spanish are temporarily switched off: the site always shows
+  // English. Set to true (and remove `hidden` from #langSwitch in
+  // index.html) to bring the language switcher back.
+  var MULTILANG = false;
 
   function detectDefaultLang() {
+    if (!MULTILANG) return "en";
     var stored = localStorage.getItem(STORAGE_KEY);
     if (stored && translations[stored]) return stored;
     var nav = (navigator.language || "en").toLowerCase();
